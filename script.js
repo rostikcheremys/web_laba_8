@@ -3,17 +3,14 @@
 
     if (query === "") return;
 
-    fetch("search.php?query=" + encodeURIComponent(query))
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Помилка завантаження даних");
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById("search-result").innerHTML = data;
-        })
-        .catch(error => {
-            console.error("Помилка:", error);
-        });
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "search.php?query=" + encodeURIComponent(query), true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("search-result").innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.send();
 }
