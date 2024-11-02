@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Foxtrot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Foxtrot</h1>
+    </header>
+
+    <main>
+        <section class="search-field">
+            <form onsubmit="return false;">
+                <input type="text" id="search-query" oninput="searchItems()" placeholder="Введіть запит...">
+            </form>
+        </section>
+
+        <section id="search-result" class="product-container"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
